@@ -13,7 +13,6 @@ $(function(){
         rectangle.testspot_id = testspot.id;
         rectangles[i] = {'testspot_id': testspot.id, 'rectangle': rectangle};
         rectangles[i].rectangle.click(function (event) {
-          console.log(this);
           setAllRectangleToRed(rectangles);
           this.attr({stroke: 'yellow'});
           this.toFront();
@@ -34,7 +33,6 @@ $(function(){
 
   function loadTestSpotData(id) {
     $.getJSON('/testspots/' + id, function(data) {
-      console.log(data);
       var testspot = data;
       $('#rect_x td').last().text(testspot.rect_x); 
       $('#rect_y td').last().text(testspot.rect_y); 
