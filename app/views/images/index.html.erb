@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="span13">
+    <% @images.each do |image| %>
+      <h4><%= image.filename %></h4>
+      <div class="well">
+        <div id="<%= image.filename.split('.').first %>"></div>
+      </div>
+    <% end %>
+  </div>
+  <div class="span3">
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% ['rect_x', 'rect_y', 'mean', 'std_dev', 'max', 'min', 'median'].each do |n| %>
+          <tr id="<%=n%>">
+            <td><%= n.humanize %></td>
+            <td></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

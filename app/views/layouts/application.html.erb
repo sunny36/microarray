@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Microarray</title>
-  <%= stylesheet_link_tag    "application" %>
+  <title>MicroArray</title>
+  <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div class="topbar">
+    <div class="fill">
+      <div class="container">
+        <h3><a href="#">MicroArray</a></h3>
+        <ul class="nav">
+          <li class="active"><a href="#">Home</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>  
+  <div class="container">
+    <div class="content">
+      <%= yield %>
+    </div>
+  </div>
 </body>
 </html>
