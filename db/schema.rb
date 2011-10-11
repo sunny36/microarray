@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111006122238) do
+ActiveRecord::Schema.define(:version => 20111011045957) do
+
+  create_table "experiments", :force => true do |t|
+    t.string   "name"
+    t.string   "folder"
+    t.string   "comments"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "images", :force => true do |t|
     t.string   "filename"
@@ -20,7 +28,10 @@ ActiveRecord::Schema.define(:version => 20111006122238) do
     t.datetime "updated_at"
     t.integer  "width"
     t.integer  "height"
+    t.integer  "experiment_id"
   end
+
+  add_index "images", ["experiment_id"], :name => "index_images_on_experiment_id"
 
   create_table "testspots", :force => true do |t|
     t.float    "rect_x"
