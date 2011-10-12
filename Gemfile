@@ -7,9 +7,6 @@ gem 'rails', '3.1.0'
 
 gem 'mysql2'
 gem 'heroku'
-gem 'taps'
-gem 'pg'
-gem 'sqlite3', :group => [:development, :test]
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -34,6 +31,9 @@ group :test do
   gem 'turn', :require => false
 end
 
-group :production do 
+group :development do
+  gem 'taps'
+end
+group :production do
   gem 'pg'
 end
