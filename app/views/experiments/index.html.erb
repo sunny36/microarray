@@ -1,10 +1,10 @@
 <% content_for :css do %>
   <%= stylesheet_link_tag "chosen" %>
 <% end -%>
-<h1>Standard Select</h1>
 
 <div class="row">
   <div class="span8 offset4">
+    <h3>Choose an experiment</h3>
     <%= form_tag do %>
       <%= select_tag("experiments", options_from_collection_for_select(@experiments, "id", "name"), 
                      include_blank: true, prompt: "Choose an experiment") %>
