@@ -11,7 +11,9 @@ Microarray::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
-  resources :images
+  resources :experiments do 
+    resources :images
+  end
   resources :testspots
 
   # Sample resource route with options:
@@ -47,7 +49,7 @@ Microarray::Application.routes.draw do
   #     resources :products
   #   end
 
-  root :to => 'images#index'
+  root :to => 'experiments#index'
 
   # See how all your routes lay out with "rake routes"
 

@@ -3,7 +3,8 @@
 <head>
   <title>MicroArray</title>
   <%= stylesheet_link_tag "application" %>
-  <%= javascript_include_tag "application" %>
+  <%= yield(:css) %>
+  <%= javascript_include_tag "#{params[:controller]}" %>
   <%= csrf_meta_tags %>
 </head>
 <body>

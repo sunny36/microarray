@@ -1,7 +1,9 @@
+//= require jquery
+//= require jquery.url
 //= require raphael
 //= require underscore
 $(function(){
-  $.getJSON('/images', function(data){
+  $.getJSON($.url().attr('path'), function(data){
     _.each(data, function(image) {
       var paper = Raphael(image.filename.split(".")[0], image.width, image.height);
       var img = paper.image("/assets" + image.filename, 0, 0, image.width, image.height);
@@ -17,7 +19,6 @@ $(function(){
           this.attr({stroke: 'yellow'});
           this.toFront();
           loadTestSpotData(this.testspot_id);
-          //console.log(this.paper.canvas.parentNode.attributes.id);
         });
         i = i + 1;
       });
