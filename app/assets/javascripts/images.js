@@ -15,6 +15,8 @@ $(function(){
         rectangle.testspot_id = testspot.id;
         rectangles[i] = {'testspot_id': testspot.id, 'rectangle': rectangle};
         rectangles[i].rectangle.click(function (event) {
+          setAllTestspotRowToWhite(image.id);
+          setSelectedTestspotRowToYellow(testspot.id);
           setAllRectangleToRed(rectangles);
           this.attr({stroke: 'yellow'});
           this.toFront();
@@ -24,7 +26,7 @@ $(function(){
       });
     });
   });
-  
+
   function setAllRectangleToRed(rectangles) {
     _.each(rectangles, function(rectangle) {
       rectangle.rectangle.attr({stroke: 'red'});
@@ -35,16 +37,23 @@ $(function(){
   function loadTestSpotData(id) {
     $.getJSON('/testspots/' + id, function(data) {
       var testspot = data;
-      $('#rect_x td').last().text(testspot.rect_x); 
-      $('#rect_y td').last().text(testspot.rect_y); 
-      $('#mean td').last().text(testspot.mean); 
-      $('#std_dev td').last().text(testspot.std_dev); 
-      $('#max td').last().text(testspot.max); 
-      $('#min td').last().text(testspot.min); 
-      $('#median td').last().text(testspot.median); 
+      $('#rect_x td').last().text(testspot.rect_x);
+      $('#rect_y td').last().text(testspot.rect_y);
+      $('#mean td').last().text(testspot.mean);
+      $('#std_dev td').last().text(testspot.std_dev);
+      $('#max td').last().text(testspot.max);
+      $('#min td').last().text(testspot.min);
+      $('#median td').last().text(testspot.median);
     });
   }
 
+  function setAllTestspotRowToWhite(id) {
+    $('table#image_' + id + ' tbody tr').css('background-color','white')
+  }
+
+  function setSelectedTestspotRowToYellow(id) {
+    $('tr#testspot_' + id).first().css('background-color','yellow')
+  }
 
 });
 

@@ -1,29 +1,64 @@
 <h2><%= @experiment.name %></h2>
-<div class="row">
-  <div class="span13">
-    <% @images.each do |image| %>
+
+<% @images.each do |image| %>
+  <div class="row">
+    <div class="span13">
       <h4><%= image.filename %></h4>
       <div class="well">
         <div id="<%= image.filename.split('.').first %>"></div>
       </div>
-    <% end %>
-  </div>
-  <div class="span3">
-    <table>
-      <thead>
-        <tr>
-          <th>Key</th>
-          <th>Value</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% ['rect_x', 'rect_y', 'mean', 'std_dev', 'max', 'min', 'median'].each do |n| %>
-          <tr id="<%=n%>">
-            <td><%= n.humanize %></td>
-            <td></td>
+    </div>
+    <div class="span3">
+      <table>
+        <thead>
+          <tr>
+            <th>Key</th>
+            <th>Value</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <% ['rect_x', 'rect_y', 'mean', 'std_dev', 'max', 'min', 'median'].each do |n| %>
+            <tr id="<%=n%>">
+              <td><%= n.humanize %></td>
+              <td></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
+  <div class="row">
+    <div class="span13">
+      <table id="<%= 'image_' + image.id.to_s %>">
+        <thead>
+          <th>#</th>
+          <th>Rect x</th>
+          <th>Rect y</th>
+          <th>Rect width</th>
+          <th>Rect height</th>
+          <th>Mean</th>
+          <th>Standard deviation</th>
+          <th>Max</th>
+          <th>Min</th>
+          <th>Median</th>
+        </thead>
+        <tbody>
+          <% image.testspots.each_with_index do |testspot, index| %>
+            <tr id="<%= 'testspot_' + testspot.id.to_s %>">
+              <td><%= index = index + 1 %></td>
+              <td><%= testspot.rect_x%></td>
+              <td><%= testspot.rect_y%></td>
+              <td><%= testspot.rect_width%></td>
+              <td><%= testspot.rect_height%></td>
+              <td><%= testspot.mean %></td>
+              <td><%= testspot.std_dev %></td>
+              <td><%= testspot.max %></td>
+              <td><%= testspot.min %></td>
+              <td><%= testspot.median %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<% end %>
