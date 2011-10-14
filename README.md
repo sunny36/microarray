@@ -8,15 +8,15 @@ Comming soon..
 
 ## TODO
 * **Update the database**
-  * <strike>Include Experiment table</strike>
-  * <strike>Experiment table should have experiment_no, folder_name, timestamps, comments</strike>
-  * <strike>Update other table accordingly with foreign key for experiments</strike>
+  * <del>Include Experiment table</del>
+  * <del>Experiment table should have experiment_no, folder_name, timestamps, comments</del>
+  * <del>Update other table accordingly with foreign key for experiments</del>
 * **Webpage**
-  * <strike>Get experiment number from the user</strike>
-  * <strike>Display experiment number</strike>
+  * <del>Get experiment number from the user</del>
+  * <del>Display experiment number</del>
   * Display list of images
-  * <strike>Display currently displayed record for selected test spot</strike>
-  * <strike>Display tabular data for all the records</strike>
+  * <del>Display currently displayed record for selected test spot</del>
+  * <del>Display tabular data for all the records</del>
 * **For the test set**
   * Please replicate the same image and the same data  
 * **Functionality**
